@@ -3,7 +3,7 @@
  */
 const _ = require('lodash');
 const basePath = require('../configs/base')[process.env.NODE_ENV];
-const cssMap = require('../statics/build/css/rev-manifest.json');
+const cssMap = process.env.NODE_ENV === 'development' ? require('../public/build/css/rev-manifest.json') : require('../statics/build/css/rev-manifest.json');
 
 module.exports = {
     getHtmlData: function (opts) {

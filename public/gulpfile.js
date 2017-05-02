@@ -107,7 +107,10 @@ gulp.task('sass', function () {
     return gulp.src('./style/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         // .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(gulp.dest('./build/css/'));
+        .pipe(gulp.dest('./build/css/'))
+        .pipe(rev())
+        .pipe(rev.manifest())
+        .pipe(gulp.dest('./build/css'));
 });
 
 gulp.task('watch',['set-dev', 'sass'], function () {
