@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///external \"jQuery\""],"names":[],"mappings":";;;;AAAA,wB","file":"activity_xiaomi.js","sourcesContent":["module.exports = jQuery;\n\n\n//////////////////\n// WEBPACK FOOTER\n// external \"jQuery\"\n// module id = 0\n// module chunks = 1"],"sourceRoot":""}

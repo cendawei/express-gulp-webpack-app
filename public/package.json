@@ -1,0 +1,14 @@
+{
+  "name": "statics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "sprite-png": "gulp png",
+    "sprite-jpg": "gulp jpg"
+  },
+  "author": "cendawei",
+  "license": "ISC"
+}
