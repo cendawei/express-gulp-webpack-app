@@ -84,22 +84,28 @@ gulp.task("webpack", ['copy-views'], function () {
 gulp.task('png', function () {
     var spritedirs = fs.readdirSync(path.resolve(__dirname + '/sprites/'));
     spritedirs.forEach(function (dir) {
-        gulp.src('sprites/' + dir + '/*.png').pipe(spritesmith({
-            imgName: dir + '.png',
-            cssName: dir + '.css'
-        }))
-            .pipe(gulp.dest('images/' + dir + '/'));
+        var spritedirs = fs.readdirSync(path.resolve(__dirname + '/sprites/' + dir + '/'));
+        spritedirs.forEach(function (spritedir) {
+            gulp.src('sprites/' + dir + '/' + spritedir + '/*.png').pipe(spritesmith({
+                imgName: spritedir + '.png',
+                cssName: spritedir + '.css'
+            }))
+                .pipe(gulp.dest('images/' + dir + '/'));
+        })
     })
 });
 
 gulp.task('jpg', function () {
     var spritedirs = fs.readdirSync(path.resolve(__dirname + '/sprites/'));
     spritedirs.forEach(function (dir) {
-        gulp.src('sprites/' + dir + '/*.jpg').pipe(spritesmith({
-            imgName: dir + '.jpg',
-            cssName: dir + '.css'
-        }))
-            .pipe(gulp.dest('images/' + dir + '/'));
+        var spritedirs = fs.readdirSync(path.resolve(__dirname + '/sprites/' + dir + '/'));
+        spritedirs.forEach(function (spritedir) {
+            gulp.src('sprites/' + dir + '/' + spritedir + '/*.jpg').pipe(spritesmith({
+                imgName: spritedir + '.jpg',
+                cssName: spritedir + '.css'
+            }))
+                .pipe(gulp.dest('images/' + dir + '/'));
+        })
     })
 });
 

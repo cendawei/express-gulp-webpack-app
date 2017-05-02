@@ -1,0 +1,60 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-arrow {
+  background-image: url(activity_xiaomi1.png);
+  background-position: -208px -37px;
+  width: 70px;
+  height: 76px;
+}
+.icon-xiaomi_applyform_title {
+  background-image: url(activity_xiaomi1.png);
+  background-position: -208px 0px;
+  width: 235px;
+  height: 37px;
+}
+.icon-xiaomi_error {
+  background-image: url(activity_xiaomi1.png);
+  background-position: -308px -37px;
+  width: 19px;
+  height: 19px;
+}
+.icon-xiaomi_lend_flexible {
+  background-image: url(activity_xiaomi1.png);
+  background-position: 0px 0px;
+  width: 104px;
+  height: 104px;
+}
+.icon-xiaomi_loan_quick {
+  background-image: url(activity_xiaomi1.png);
+  background-position: -104px 0px;
+  width: 104px;
+  height: 104px;
+}
+.icon-xiaomi_rate_low {
+  background-image: url(activity_xiaomi1.png);
+  background-position: 0px -104px;
+  width: 104px;
+  height: 104px;
+}
+.icon-xiaomi_right {
+  background-image: url(activity_xiaomi1.png);
+  background-position: -278px -37px;
+  width: 30px;
+  height: 21px;
+}
