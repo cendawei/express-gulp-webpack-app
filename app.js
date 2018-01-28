@@ -1,5 +1,6 @@
 // 运行环境
-process.env.NODE_ENV = 'development';
+process.env.PORT = '8089';
+process.env.NODE_ENV || (process.env.NODE_ENV = 'development');
 
 var express = require('express');
 var fs = require('fs');
@@ -8,19 +9,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var nunjucks = require('nunjucks');
+var ejs = require('ejs')
+// var nunjucks = require('nunjucks');
 var rfs = require('rotating-file-stream');
-var base = require('./configs/base');
-var database = require('./configs/database');
-var utils = require('./core/utils');
+var configs = require('./configs');
+var database = configs['database'];
+var routePrefix = configs['route']['routePrefix']
 var routes = require('./routes');
 
 var app = express();
 
 //注册app工具
-app.set('base', base);
 app.set('database', database);
-app.set('utils', utils);
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
@@ -28,10 +28,14 @@ app.set('utils', utils);
 // app.set('view engine', 'html');
 // app.engine('html', require('ejs').__express);
 // app.engine('html', require('jade').__express);
-nunjucks.configure(path.join(__dirname, 'views'), {
-    autoescape: true,
-    express: app
-});
+// nunjucks.configure(path.join(__dirname, 'views'), {
+//     autoescape: true,
+//     express: app
+// });
+// app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'views'));
+ejs.delimiter = '$';
+app.engine('html', require('ejs').renderFile)
 app.set('view engine', 'html');
 
 // 日志
@@ -46,17 +50,24 @@ app.use(logger('dev', {stream: logStream}));
 
 
 // uncomment after placing your favicon in /public
-process.env.NODE_ENV === 'development' ? app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))) : app.use(favicon(path.join(__dirname, 'statics', 'favicon.ico')));
+// process.env.NODE_ENV === 'development' ? app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))) : app.use(favicon(path.join(__dirname, 'statics', 'favicon.ico')));
 
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // 开发环境静态目录
-app.use(express.static(path.join(__dirname, 'public')));
-// 生产环境静态目录
-app.use('/webroot', express.static(path.join(__dirname, 'statics')));
+switch (process.env.NODE_ENV) {
+    case 'development':
+        app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+        app.use(`${routePrefix}/webroot`, express.static(path.join(__dirname, 'public')));
+        break;
+    default:
+        app.use(favicon(path.join(__dirname, 'statics', 'favicon.ico')));
+        // 生产环境静态目录
+        app.use(`${routePrefix}/webroot`, express.static(path.join(__dirname, 'statics')));
+}
 
 // 路由
 routes(app);

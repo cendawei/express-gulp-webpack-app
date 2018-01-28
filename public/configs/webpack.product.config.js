@@ -5,13 +5,15 @@ var merge = require('webpack-merge');
 var webpack = require('webpack');
 var path = require('path');
 
-var baseConfig = require('./webpack.base.config');
+var baseConfig = require('./webpack.base.config')('production');
+baseConfig.plugins.unshift(new webpack.DefinePlugin({
+    'process.env': {
+        NODE_ENV: '"production"'
+    }
+}))
 var prodConfig = merge({}, baseConfig, {
     output: {
-        path: path.resolve(__dirname, '../../statics/build/js/'),
-        filename: '[name].[chunkhash:8].js',
-        publicPath: '/webroot/build/js/',
-        chunkFilename: '[id].chunk.[chunkhash:8].js'
+        path: path.resolve(__dirname, '../../statics/build/js/')
     }
 });
 prodConfig.plugins.push(

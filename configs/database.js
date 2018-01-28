@@ -3,30 +3,28 @@
  */
 module.exports = {
     'development': {
-        "host": "120.92.76.229",
+        "host": "127.0.0.1",
         "port": "3306",
-        "database": "wps_finance",
+        "database": "app_name",
         "username": "root",
-        "password": "wps_finance",
+        "password": "root",
         "dialect": "mysql"
     },
     'production': {
-        "host": "120.92.76.229",
-        // "host": "172.31.252.135",
+        // "host": "127.0.0.1",
+        "host": "120.78.95.62",
         "port": "3306",
-        "database": "wps_finance",
+        "database": "app_name",
         "username": "root",
-        // "username": "wps_finance",
-        "password": "wps_finance",
-        // "password": "aw&Z)92R4kWdf[dszK",
+        "password": "root",
         "dialect": "mysql"
     },
     'test': {
-        "host": "127.0.0.1",
+        "host": "120.78.95.62",
         "port": "3306",
-        "database": "wps_finance",
+        "database": "app_name",
         "username": "root",
-        "password": "wps_finance",
+        "password": "root",
         "dialect": "mysql"
     },
 }

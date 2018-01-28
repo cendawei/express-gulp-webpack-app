@@ -17,15 +17,5 @@ module.exports = {
         setTimeout(function () {
             d.close().remove();
         }, 2000);
-    },
-
-    renderAfterEmpty: function (dom, tpl, data) {
-        let html = require('../../templates/'+tpl +'.art')(data);
-        $(dom).empty().html(html);
-    },
-
-    render: function (dom, tpl, data) {
-        let html = require('../../templates/'+tpl +'.art')(data);
-        $(dom).append(html);
     }
 }
