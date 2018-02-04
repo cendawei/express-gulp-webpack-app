@@ -47,7 +47,8 @@ var baseConfig = {
         ]
     },
     externals: {
-        'jquery': 'jQuery'
+        'jquery': 'jQuery',
+        'zepto': 'Zepto'
     },
     resolve: {
         extensions: ['.js', '.jsx', '.vue'],
@@ -55,7 +56,7 @@ var baseConfig = {
             'api': path.resolve(__dirname, '../js/core/api.js'),
             'services': path.resolve(__dirname, '../js/services/index.js'),
             'ui': path.resolve(__dirname, '../js/core/ui.js'),
-            'utils': path.resolve(__dirname, '../js/core/utlis.js'),
+            'utils': path.resolve(__dirname, '../js/core/utils.js'),
             'vue$': 'vue/dist/vue.esm.js',
             'routeConfig': path.resolve(__dirname, './route.path.config.js'),
             '@': resolve('public')

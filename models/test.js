@@ -13,6 +13,10 @@ const index_table = connect.define('index', {
 
 module.exports = {
     async getAll() {
-        return await index_table.findAll();
+        const res = await index_table.findAll();
+        return {
+            ok: true,
+            list: res
+        }
     }
 }

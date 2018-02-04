@@ -7,6 +7,6 @@ const path = require('path')
 const testControler = require('../controllers/test');
 
 /* GET users listing. */
-router.get('/index', testControler.index)
+router.get('/list', testControler.getList)
 
 module.exports = router;

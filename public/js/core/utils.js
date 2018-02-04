@@ -2,6 +2,7 @@
  * Created by cendawei on 2017/4/18.
  */
 const apiPrefix = require('routeConfig')['apiPrefix']
+const $ = require('jquery')
 
 module.exports = {
     goRoute(vm, query) {

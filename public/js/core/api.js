@@ -6,6 +6,7 @@
  * @returns {*}
  */
 const apiPrefix = require('routeConfig')['apiPrefix']
+const $ = require('jquery')
 
 module.exports = function (opts, successfunc, failfunc) {
     var deff = $.Deferred();

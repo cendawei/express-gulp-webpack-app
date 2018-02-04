@@ -1,16 +1,20 @@
 /**
  * Created by cendawei on 2017/4/17.
  */
-import services from 'services'
-import $ from 'jquery'
-import ui from 'ui'
+import Vue from 'vue'
+import App from '@/App'
+import router from '@/router'
+import dateFormat from '@/filters/dateFormat'
 
-services.testService.getItems()
-    .done(res => {
-        res.code == 2000 ? $('.wrapper').find('#app').html('hello') : ui.tips('error')
-        console.log(res)
-    })
-    .fail(err => {
-        ui.tips('error')
-    })
+Vue.config.productionTip = false
+
+// 全局过滤器
+Vue.filter('dateFormat', dateFormat)
+
+new Vue({
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: { App }
+})
 

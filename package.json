@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "cdroom-app",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -23,7 +23,8 @@
     "mysql": "^2.13.0",
     "rotating-file-stream": "^1.2.1",
     "sequelize": "^3.30.4",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "superagent": "^3.8.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -50,6 +51,7 @@
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.9",
     "webpack": "^3.9.1",
-    "webpack-merge": "^4.1.1"
+    "webpack-merge": "^4.1.1",
+    "weui": "^1.1.2"
   }
 }

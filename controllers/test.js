@@ -3,13 +3,17 @@
  */
 const testModel = require('../models/test')
 const {getResult} = require('../core/utils')
+const {omit} = require('lodash')
 
 module.exports = {
-    async index (req, res, next) {
+    async getList (req, res, next) {
         const data = await testModel.getAll();
-        const result = {
-            codeText:'success',
-            data
+        let result = {}
+        if(data.ok) {
+            result['codeText'] = 'success'
+            result['data'] = omit(data, 'ok')
+        } else {
+            result['codeText'] = 'failure'
         }
         res.json(getResult(result))
     }

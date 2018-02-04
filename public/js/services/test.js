@@ -4,9 +4,9 @@
 import api from 'api'
 
 export default {
-    getItems() {
+    getList() {
         return api({
-            url: '/test/index',
+            url: '/test/list',
             type: 'get'
         })
     }
