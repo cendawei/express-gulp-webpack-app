@@ -16,9 +16,10 @@
 ### 运行项目
 > `npm run start`
 ### 项目部署
-> 服务启动：`npm run server` 前端项目构建：`npm run build`
+> 服务启动：`npm run server` <br />
+> 前端项目构建：`npm run build`
 ### 该框架支持自动化构建项目目录，工具：dw-express-app
-> 安装：`npm install -g dw-express-app`
+> 安装：`npm install -g dw-express-app` <br />
 > 使用：`dw-express-app -d project`
 ### 项目合作：
 > business@cdroom.top
